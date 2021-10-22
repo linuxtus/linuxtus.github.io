@@ -1,0 +1,40 @@
+presets:
+  lazy-load-header:
+    formats: [webp]
+    format_quality:
+      webp: 100
+    widths: [800, 1200]
+    dimension_attributes: true
+    noscript: false
+    attributes:
+      img: class="rounded"
+  lazy-load-small:
+    format_quality:
+      webp: 100
+    formats: [webp]
+    widths: [400, 600]
+    dimension_attributes: true
+    markup: data_img
+    noscript: false
+    attributes:
+      img: class="lazyload rounded"
+  lazy-load:
+    format_quality:
+      webp: 100
+    formats: [webp]
+    widths: [800, 1200]
+    dimension_attributes: true
+    markup: data_img
+    noscript: false
+    attributes:
+      img: class="lazyload rounded"
+  lazy-load-suggest:
+    format_quality:
+      webp: 100
+    formats: [webp]
+    widths: [400]
+    dimension_attributes: true
+    markup: data_img
+    noscript: false
+    attributes:
+      img: class="lazyload rounded"

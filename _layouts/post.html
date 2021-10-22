@@ -1,0 +1,252 @@
+---
+layout: base
+---
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title }}",
+    "name": "{{ page.title }}",
+    "description": "{{ page.description }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+    "inLanguage": "en-US",
+    "image": {
+      "@type": "ImageObject",
+      "url": "{{ page.thumbnail-img | absolute_url }}"
+    },
+    "author": {
+      "@type": "Person",
+      "@id": "{{ site.url }}{{ page.url }}#author",
+      "url": "https://facebook.com/tgbaodeeptry",
+      "name": "tgbao2703",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{ site.url }}#logo",
+        "url": "https://tgbao.me/assets/img/avatar-icon.webp",
+        "caption": "tgbao.me",
+        "inLanguage": "en-US"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "{{ site.url }}#person",
+      "name": "tgbao.me",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{ site.url }}#logo",
+        "url": "https://tgbao.me/assets/img/avatar-icon.webp",
+        "caption": "tgbao.me",
+        "inLanguage": "en-US"
+      }
+    },
+    "isPartOf": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}#webpage",
+      "url": "{{ site.url }}{{ page.url }}",
+      "name": "{{ page.title }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",
+      "inLanguage": "en-US",
+      "author": {
+        "@type": "Person",
+        "@id": "{{ site.url }}{{ page.url }}#author",
+        "url": "https://facebook.com/tgbaodeeptry",
+        "name": "tgbao2703",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "{{ site.url }}#logo",
+          "url": "https://tgbao.me/assets/img/avatar-icon.webp",
+          "caption": "tgbao.me",
+          "inLanguage": "en-US"
+        }
+      },
+      "isPartOf": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}#webpage",
+        "url": "{{ site.url }}",
+        "name": "Tech blog for everyone - tgbao.me",
+        "inLanguage": "en-US",
+        "author": {
+          "@type": "Person",
+          "@id": "{{ site.url }}{{ page.url }}#author",
+          "url": "https://facebook.com/tgbaodeeptry",
+          "name": "tgbao2703",
+          "image": {
+            "@type": "ImageObject",
+            "@id": "{{ site.url }}#logo",
+            "url": "https://tgbao.me/assets/img/avatar-icon.webp",
+            "caption": "tgbao.me",
+            "inLanguage": "en-US"
+          }
+        }
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "BlogPosting",
+      "@id": "{{ site.url }}{{ page.url }}#webpage",
+      "url": "{{ site.url }}{{ page.url }}",
+      "name": "{{ page.title }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | date_to_xmlschema }j}",
+      "image": "{{ page.thumbnail-img | absolute_url }}",
+      "headline": "{{ page.title }}",
+      "inLanguage": "en-US",
+      "author": {
+        "@type": "Person",
+        "@id": "{{ site.url }}{{ page.url }}#author",
+        "url": "https://facebook.com/tgbaodeeptry",
+        "name": "tgbao2703",
+        "image": {
+          "@type": "ImageObject",
+          "@id": "{{ site.url }}#logo",
+          "url": "https://tgbao.me/assets/img/avatar-icon.webp",
+          "caption": "tgbao.me",
+          "inLanguage": "en-US"
+        }
+      },
+      "isPartOf": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}#webpage",
+        "url": "{{ site.url }}",
+        "name": "Tech blog for everyone - tgbao.me",
+        "inLanguage": "en-US",
+        "author": {
+          "@type": "Person",
+          "@id": "{{ site.url }}{{ page.url }}#author",
+          "url": "https://facebook.com/tgbaodeeptry",
+          "name": "tgbao2703",
+          "image": {
+            "@type": "ImageObject",
+            "@id": "{{ site.url }}#logo",
+            "url": "https://tgbao.me/assets/img/avatar-icon.webp",
+            "caption": "tgbao.me",
+            "inLanguage": "en-US"
+          }
+        }
+      }
+    },
+    "articleBody": "{{ content | markdownify | strip_html | replace: '"', "'" }}"
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Tech blog for everyone",
+    "alternateName": "Help you know programming, software, tutorial, crypto, operating system, anything related to tech.",
+    "url": "https://tgbao.me/",
+    "description": "Help you know programming, software, tutorial, crypto, operating system, anything related to tech.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://tgbao.me/assets/img/avatar-icon.webp"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://tgbao.me/search?s={search_term}"
+      },
+      "query-input": {
+        "@type": "PropertyValueSpecification",
+        "valueRequired": "http://schema.org/True",
+        "valueName": "search_term"
+      }
+    }
+  }
+</script>
+
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div id="breadcrumb" class="mt-3 mb-0">
+        <span>You are here: </span>
+        <ul id="breadcrumblist" class="p-0" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ site.url }}"><span itemprop="name">Home</span></a>/<meta itemprop="position" content="1" /></li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ site.url }}/{{ page.categories }}/"><span itemprop="name">{{ page.categories }}</span></a><meta itemprop="position" content="2" />/</li>
+          <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name">{{ page.title }}</span><meta itemprop="position" content="3" /></li>
+        </ul>
+        <hr/>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-8 p-0">
+      <main role="main" id="main">
+        <article>
+          {% include header.html type="post" %}
+
+          {% if page.before-content %}
+          <div class="before-content">
+            {% for file in page.before-content %}
+            {% include {{ file }} %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <div class="row">
+            <div class="addthis_inline_share_toolbox"></div>
+          </div>
+          <hr />
+
+          <div class="row">
+            <div class="blog-post">
+              {{ content }}
+            </div>
+          </div>
+
+          {% if page.tags.size > 0 %}
+          <div class="row">
+            <div class="blog-tags mt-2">
+              {% for tag in page.tags %}
+                <a rel="tag" href="/tag/{{ tag }}/">{{- tag | replace: "-", " " -}}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class="row">
+            <div class="addthis_inline_share_toolbox mt-2"></div>
+          </div>
+
+          {% if page.after-content %}
+          <div class="after-content">
+            {% for file in page.after-content %}
+            {% include {{ file }} %}
+            {% endfor %}
+          </div>
+          {% endif %}
+          </div>
+
+          <div class="col-12 col-lg-4">
+            {% assign q = "item.categories contains " %}
+            {% capture query %}
+              item.categories contains '{{ page.categories }}'
+            {% endcapture %}
+
+            {% assign posts = site.posts | where_exp: "item", query | where_exp: "post" , "post.url != page.url" %}
+
+            {% include right-side.html %}
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12 col-lg-8 p-0">
+      <aside>
+        <div class="row">
+          <div class="category-name mt-4 mb-3">
+            <h3><span>Comments</span></h3>
+          </div>
+        </div>
+
+        {% include comments.html %}
+      </aside>
+    </div>
+  </div>
+</div>

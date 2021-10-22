@@ -1,0 +1,6 @@
+User-Agent: *
+
+Allow: /*.js$
+Allow: /*.css$
+
+Sitemap: https://tgbao.me/sitemap.xml

@@ -1,0 +1,52 @@
+---
+layout: base
+---
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "{{ layout.title }}",
+    "alternateName": "{{ layout.description }}",
+    "url": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
+    "description": "{{ layout.description }}",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://tgbao.me/assets/img/avatar-icon.webp"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://tgbao.me/search?s={search_term}"
+      },
+      "query-input": {
+        "@type": "PropertyValueSpecification",
+        "valueRequired": "http://schema.org/True",
+        "valueName": "search_term"
+      }
+    }
+  }
+</script>
+
+<div class="container-fluid p-0" role="main">
+  <div class="row justify-content-center">
+    {% if page.before-content %}
+    <div class="before-content">
+      {% for file in page.before-content %}
+      {% include {{ file }} %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {{ content }}
+
+    {% if page.after-content %}
+    <div class="after-content">
+      {% for file in page.after-content %}
+      {% include {{ file }} %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>

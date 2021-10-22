@@ -1,0 +1,119 @@
+---
+title: Tech blog for everyone
+description: Help you know programming, software, tutorial, crypto, operating system, anything related to tech.
+layout: page
+lang: en
+---
+
+<div class="col-12 p-0">
+  <div class="mt-5">
+    <article class="post-body">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% assign fp = site.posts.first %}
+
+          <a href="{{ fp.url | absolute_url }}">
+            {% picture lazy-load-header {{ fp.thumbnail-img }} --alt {{ fp.title }} %}
+          </a>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="post-title-small">
+            <h3 class="mb-2"> <a href="{{ fp.url | absolute_url }}">{{ fp.title }}</a> </h3>
+          </div>
+
+          <div class="post-description-small">
+            <span>{{ fp.excerpt | strip_html | strip_newlines | truncate: 200 }}</span>
+          </div>
+
+          <div class="post-date-small mt-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
+              viewBox="0 0 16 16">
+              <path
+                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+            </svg>
+            <span>{{ fp.date | date: "%B %-d, %Y" }}</span>
+          </div>
+          <div class="post-category-small">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tag" viewBox="0 0 16 16">
+              <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/>
+              <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/>
+            </svg>
+            <a href="/{{ fp.categories }}/">{{ fp.categories }}</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<div class="col-12 col-lg-8 p-0">
+  <div class="row">
+    <h2 class="box-type">Lastest Posts</h2>
+  </div>
+  {% assign num = 0 %}
+
+  {% if paginator.posts.first.url == site.posts.first.url %}
+  {% assign num = 1 %}
+  {% endif %}
+
+  {% for p in paginator.posts offset: num %}
+  <article class="post-body">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <a href="{{ p.url | absolute_url }}">
+          {% picture lazy-load-small {{ p.thumbnail-img }} --alt {{ p.title }} %}
+        </a>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <div class="post-info-small">
+          <div class="post-title-small">
+            <h3 class="mb-2"><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></h3>
+          </div>
+
+          <div class="post-description-small">
+            <span>{{ p.excerpt | strip_html | strip_newlines | truncate: 156 }}</span>
+          </div>
+
+          <div class="post-date-small mt-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
+              viewBox="0 0 16 16">
+              <path
+                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+            </svg>
+            <span>{{ p.date | date: "%B %-d, %Y" }}</span>
+          </div>
+          <div class="post-category-small">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tag" viewBox="0 0 16 16">
+              <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/>
+              <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/>
+            </svg>
+            <a href="/{{ p.categories }}/">{{ p.categories }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div class="my-4">
+    <hr />
+  </div>
+  {% endfor %}
+
+  {% if paginator.page_trail %}
+  <div class="pagination">
+    <ul>
+    {% for trail in paginator.page_trail %}
+      <li {% if page.url == trail.path %} class="active" {% endif %}>
+          <a href="{{ trail.path | replace: 'index.html', '' }}" title="{{ trail.title }}">{{ trail.num }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</div>
+
+<div class="col-12 col-lg-4 p-0">
+  {% assign tagscloud = site.tags %}
+  {% include right-side.html %}
+</div>

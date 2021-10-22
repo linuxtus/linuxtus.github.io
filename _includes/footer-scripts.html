@@ -1,0 +1,49 @@
+<!-- js -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script async src="/assets/js/lazyload.min.js"></script>
+
+{% if jekyll.environment == 'production' %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3RJFJQLCL"></script>
+{% endif %}
+
+<!-- Post -->
+{% if page.path contains '_posts' %}
+  <script defer src="/assets/js/post-toc.js"></script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      $('#toc').toc();
+    })
+  </script>
+
+  <!-- load addthis -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const script = document.createElement('script');
+      script.async = 'true';
+      script.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615d7bbba282b8c0';
+      setTimeout(function() {
+        document.head.append(script);
+      }, 3000);
+    });
+  </script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const script = document.createElement('script');
+      script.async = 'true';
+      script.defer = 'true';
+      script.crossorigin = "anonymous";
+      script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=248296667114055&autoLogAppEvents=1";
+      script.nonce = "5wVoky5Z";
+      setTimeout(function() {
+        document.head.append(script);
+      }, 3000);
+    })
+  </script>
+{% endif %}
+
+{% if page.name == "search.html" %}
+  <script defer src="/assets/js/search-posts.js"></script>
+{% endif %}
