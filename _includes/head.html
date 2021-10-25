@@ -30,7 +30,7 @@
       {{- page.title -}}
     {%- endif -%}
     {% if page.pagination_info.curr_page and page.pagination_info.curr_page != 1 %} - Page {{page.pagination_info.curr_page}} of {{page.pagination_info.total_pages}}{% endif %}
-  {%- endcapture -%} 
+  {%- endcapture -%}
 
   {%- capture description -%} 
     {%- if layout.description -%}
@@ -122,9 +122,13 @@
     {% capture include_fonts %}
       {% include fonts.scss %}
     {% endcapture %}
+    {% capture include_highlight %}
+      {% include highlight.scss %}
+    {% endcapture %}
 
     {{ include_to_scssify }}
     {{ include_fonts }}
+    {{ include_highlight }}
   </style>
 
 </head>

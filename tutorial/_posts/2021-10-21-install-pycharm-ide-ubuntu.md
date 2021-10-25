@@ -28,17 +28,25 @@ Read more: [How to Install IntelliJ IDEA on Ubuntu 21.10](https://tgbao.me/insta
 
 Software Center Ubuntu should be your first pick if you're running Ubuntu. Because it provides a large number of packages (including PyCharm) that are simple use.
 
-To install this Python IDE, you must first access Software Center from your Ubuntu.
+<ol id="steps">
+<li>
+To install this Python IDE, you must access Software Center from your Ubuntu.
+</li>
 
 {% picture lazy-load /assets/img/posts/15/open-ubuntu-software-install-pycharm.webp --alt Open Ubuntu Software To Install IntelliJ IDEA %}
 
-Second, simply type `PyCharm` into the search box, and the results will appear.
+<li>
+Simply type `PyCharm` into the search box, and the results will appear.
+</li>
 
 {% picture lazy-load /assets/img/posts/15/choose-pycharm-version-to-install-ubuntu.webp --alt Choose IntelliJ Version to Install on Ubuntu %}
 
-Third, select the version you wish to install and click the `Install` button.
+<li>
+Select the version you wish to install and click the `Install` button.
+</li>
 
 {% picture lazy-load /assets/img/posts/15/click-install-button-install-pycharm-ubuntu.webp --alt Click Install Ubuntu to Install IntelliJ IDEA %}
+</ol>
 
 ## Option 2: Use Snap packages to install PyCharm on Linux.
 
@@ -75,23 +83,31 @@ The suggested tool for installing JetBrains products is the [JetBrains Toolbox A
 
 Please follow these steps to install Toolbox App:
 
-1. Download the `.tar.gz` from the [Toolbox App web page](https://www.jetbrains.com/toolbox-app/)
+<ol id="steps">
+<li>
+Download the <code>*.tar.gz</code> from the <a href="https://www.jetbrains.com/toolbox-app/">Toolbox App</a>
+</li>
 
 {% picture lazy-load /assets/img/posts/15/download-jetbrains-toolbox-intellij-idea-ubuntu.webp --alt Download JetBrains Toolbox to install PyCharm %} 
 
-2. To run JetBrains Toolbox App, extract the downloaded file to `/opt`.
+<li>
+To run JetBrains Toolbox App, extract the downloaded file to `/opt`.
 
-```
+{% highlight bash %}
 sudo tar -xzf jetbrains-toolbox-*****.tar.gz -C /opt
-```
+{% endhighlight %}
+</li>
 
-3. To launch App, run this command from the '/opt/jetbrains-toolbox-xxx' directory.
+<li>
+To launch App, run this command from the '/opt/jetbrains-toolbox-xxx' directory.
 
-```
+{% highlight bash %}
 ./jetbrains-toolbox
-```
+{% endhighlight %}
 
 {% picture lazy-load /assets/img/posts/15/use-jetbrains-toolbox-install-pycharm-ubuntu.webp --alt Use JetBrains Toolbox to install PyCharm on Linux %} 
+</li>
+</ol>
 
 The Toolbox App icon will be immediately added to the main menu when you start it. After that, select any PyCharm version to install on Ubuntu.
 
@@ -101,17 +117,27 @@ Although installing this Python IDE from the source on Ubuntu is a bit tricky, y
 
 To install, follow these steps:
 
-Go to [PyCharm Download Center](https://www.jetbrains.com/pycharm/download/). Choose Linux, and download the version you want to install
+<ol id="steps">
+<li>
+Go to <a href="https://www.jetbrains.com/pycharm/download/">PyCharm Download Center</a>. 
+<br/>
+Choose Linux, and download the version you want to install
 
 {% picture lazy-load /assets/img/posts/15/choose-jetbrains-version-install-pycharm-linux.webp --alt Choose Linux Version to Install IntelliJ IDEA %}
+</li>
 
-Run the following command to extract the downloaded files to the '/opt' directory:
+<li>
+Run the following command to extract the downloaded files to the <code>/opt</code> directory:
 
-```
+{% highlight bash %}
 sudo tar -xzf pycharm-*.tar.gz -C /opt
-```
+{% endhighlight %}
+</li>
 
-To launch IDE, execute the `pycharm.sh` script from the extracted directory.
+<li>
+To launch IDE, execute the <code>pycharm.sh</code> script from the extracted directory.
+</li>
+</ol>
 
 ## Conclusion
 

@@ -1,6 +1,5 @@
 User-Agent: *
 
-Allow: /*.js$
-Allow: /*.css$
+Disallow: /assets/img/
 
 Sitemap: https://tgbao.me/sitemap.xml

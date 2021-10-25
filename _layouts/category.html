@@ -7,7 +7,7 @@ layout: page
     <h2 class="box-type">{{ page.ncategory }} Category</h2>
   </div>
 
-  {% for p in paginator.posts offset: 1 %}
+  {% for p in paginator.posts %}
   <article class="post-body">
     <div class="row">
       <div class="col-12 col-md-4">

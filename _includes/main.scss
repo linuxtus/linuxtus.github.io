@@ -138,20 +138,6 @@ table tr td :last-child {
   margin-bottom: 0;
 }
 
-code {
-  background-color: #f6f8fa;
-  border-radius: 6px;
-  font-size: 85%;
-  padding: .2rem .4rem;
-  margin: 0;
-}
-
-pre code {
-  padding: 0;
-  background-color: transparent;
-  border-radius: 0;
-}
-
 pre {
   font-size: 0.875rem;
   line-height: 1.5em;
@@ -159,13 +145,7 @@ pre {
   padding: 0.59375rem;
 }
 
-.highlight pre {
-  border: none;
-  background: none;
-  margin: 4;
-}
-
-.highlight>pre {
+.highlight > pre {
   background-color: #f6f8fa;
   border-radius: 6px;
   font-size: 85%;
@@ -174,23 +154,8 @@ pre {
   padding: 16px;
 }
 
-.highlight>pre:not([class~="highlight"]) {
-  padding: 0;
-}
-
-.highlight table,
-.highlight tr,
-.highlight td {
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-}
-
-.highlight pre.lineno {
-  color: rgba(0, 0, 0, 0.3);
-  border-radius: 0;
-  border-right: 2px solid #444;
+.highlight {
+  margin-top: 1rem;
 }
 
 .blog-post p {
@@ -465,5 +430,37 @@ img {
   border-color: initial;
   padding-right: 1em;
   color: rgb(13, 110, 253);
-  text-decoration: none;
+  text-decoration: underline;
+}
+
+#steps {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#steps li {
+  counter-increment: step-counter;
+  margin-bottom: 1rem;
+}
+
+#steps li::before {
+  border-bottom-color: rgb(154, 143, 127);
+  background-color: rgb(61, 66, 68);
+  color: rgb(255, 253, 250);
+  content: "Step " counter(step-counter) "";
+  border-bottom: 0.5px solid black;
+  line-height: 20pt;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 100%;
+  background-color: rgb(200,200,200);
+  color: black;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px ;
+}
+
+.blog-post table {
+  margin-top: 1rem;
 }

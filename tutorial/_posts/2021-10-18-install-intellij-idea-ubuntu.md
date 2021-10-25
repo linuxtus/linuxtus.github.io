@@ -2,7 +2,7 @@
 layout: post
 thumbnail-img: "/assets/img/posts/14/how-to-install-intellij-idea-ubuntu.webp"
 title: How to Install IntelliJ IDEA on Ubuntu 21.10
-description: Steps to install IntelliJ IDEA on Ubuntu 21.10 and other Linux distributions very easily.
+description: IntelliJ IDEA is a Java, Kotlin IDE. This is step by step guide to install IntelliJ IDEA on Ubuntu 21.10 and other Linux distributions very easily.
 lang: en
 categories:
 - tutorial
@@ -28,43 +28,65 @@ In this post, I will help you to install IntelliJ IDEA on Ubuntu. It has many wa
 
 If you are using Ubuntu, I think Software Center Ubuntu should be your first choice. Because it contains many packages (also IntelliJ IDEA), and you can install them very easily.
 
-Firstly, you need to open Software Center from your Ubuntu to install JetBrains’s product
+<ol id="steps">
+<li>
+You need to open Software Center from your Ubuntu to install JetBrains’s product
 
 {% picture lazy-load /assets/img/posts/14/open-ubuntu-software-install-intellij-idea.webp --alt Open Ubuntu Software To Install IntelliJ IDEA %}
+</li>
 
-Secondly, you just have to search IntelliJ IDEA and it will show the possible results.
+<li>
+You just have to search IntelliJ IDEA and it will show the possible results.
 
 {% picture lazy-load /assets/img/posts/14/choose-intellij-version-to-install-ubuntu.webp --alt Choose IntelliJ Version to Install on Ubuntu %}
+</li>
 
-Third, choose the version you want to install on your Ubuntu 21.10 and click the Install button.
+<li>
+Choose the version you want to install on your Ubuntu 21.10 and click the Install button.
 
 {% picture lazy-load /assets/img/posts/14/click-install-button-install-intellij-ubuntu.webp --alt Click Install Ubuntu to Install IntelliJ IDEA %}
+</li>
+</ol>
 
 ## Option 2: Install IntelliJ IDEA in Linux using Snap packages
 
 [Snaps](https://snapcraft.io/) are containerised software packages that are simple to create and install. They auto-update and are safe to run. And because they bundle their dependencies, they work on all major Linux systems without modification.
 
-First, please make sure that you have installed Snap on your Linux distribution. If you don’t know how to install it, follow: [Installing snap on Linux](https://snapcraft.io/docs/installing-snap-on-ubuntu)
+<ol id="steps">
+<li> Make sure that you have installed Snap on your Linux distribution.  
+<br/>
+If you don’t know how to install it, follow: <a href="https://snapcraft.io/docs/installing-snap-on-ubuntu">Installing snap on Linux</a>
 
-After that, you should choose a version of IntelliJ IDEA to install on Linux.
+</li>
 
-For the **community version** ( Free version ):
+<li>
+Choose a version of IntelliJ IDEA to install on Linux.
 
-```
-sudo snap install intellij-idea-ultimate --classic
-```
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">IntelliJ IDEA's version</th>
+            <th scope="col">Installation Steps</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Free Version</td>
+            <td>sudo snap install intellij-idea-ultimate --classic</td>
+        </tr>
+        <tr>
+            <td>Ultimate Version</td>
+            <td>sudo snap install intellij-idea-ultimate --classic</td>
+        </tr>
+        <tr>
+            <td>Educational Version</td>
+            <td>sudo snap install intellij-idea-ultimate --classic</td>
+        </tr>
+    </tbody>
+</table>
 
-For the **ultimate version** ( Paid version ):
-
-```
-sudo snap install intellij-idea-ultimate --classic
-```
-
-For the **educational version**:
-
-```
-sudo snap install intellij-idea-ultimate --classic
-```
+</li>
+</ol>
 
 ## Option 3: Install using the Toolbox App
 
@@ -72,23 +94,32 @@ The [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/) is the recom
 
 To install IntelliJ IDEA using the Toolbox App, please follow:
 
-1. Download the `.tar.gz` from the [Toolbox App web page](https://www.jetbrains.com/toolbox-app/)
+<ol id="steps">
+<li>
+Download the <code>*.tar.gz</code> from the <a href="https://www.jetbrains.com/toolbox-app/">Toolbox App</a>
 
 {% picture lazy-load /assets/img/posts/14/download-jetbrains-toolbox-intellij-idea-ubuntu.webp --alt Download JetBrains Toolbox to install IntelliJ IDEA %} 
+</li>
 
-2. Extract the downloaded file to `/opt` to execute JetBrains Toolbox App
+<li>
+Extract the downloaded file to <code>/opt</code> to execute JetBrains Toolbox App
 
-```
+{% highlight bash %}
 sudo tar -xzf jetbrains-toolbox-*****.tar.gz -C /opt
-```
+{% endhighlight %}
+</li>
 
-3. Execute this command from `/opt/jetbrains-toolbox-***` directory to run App
+<li>
+Execute this command from <code>/opt/jetbrains-toolbox-***</code> directory to run App
 
-```
+{% highlight bash %}
 ./jetbrains-toolbox
-```
+{% endhighlight %}
+</li>
 
 {% picture lazy-load /assets/img/posts/14/use-jetbrains-toolbox-install-intellij-idea-ubuntu.webp --alt Use JetBrains Toolbox to install IntelliJ IDEA on Linux %} 
+
+</ol>
 
 After running the Toolbox App, it will automatically add the Toolbox App icon to the main menu. Next, choose any IntelliJ IDEA's version to install on your Ubuntu. 
 
@@ -96,24 +127,32 @@ After running the Toolbox App, it will automatically add the Toolbox App icon to
 
 Personal Package Archives (PPAs) are software repositories designed for Ubuntu users and are easier to install than other third-party repositories. PPAs are often used to distribute pre-release software so that it can be tested.
 
-First, you have to open your [Terminal Emulator](https://tgbao.me/install-alacritty-terminal-emulator-ubuntu/)
+<ol id="steps"> 
 
-Second, add the official `mmk2410’s ppa` to your Ubuntu:
+<li>You have to open your <a href="https://tgbao.me/install-alacritty-terminal-emulator-ubuntu/">Terminal Emulator</a>
+</li>
 
-```
+<li>
+Add the official <code>mmk2410’s ppa</code> to your Ubuntu:
+
+{% highlight bash %}
 sudo add-apt-repository ppa:mmk2410/intellij-idea-community
 sudo apt update
-```
+{% endhighlight %}
+</li>
 
-Third, you can install IntelliJ IDEA on your Ubuntu now
+<li>
+You can install IntelliJ IDEA on your Ubuntu now
 
-```
+{% highlight bash %}
 sudo apt install intellij-idea-community
-```
+{% endhighlight %}
+</li>
+</ol>
 
 > Note: only the Community version is available via this PPA, so if you want to install other versions, please consider other ways in this post to install.
 
-To **remove IntelliJ** installed from the above PPA, use these Linux’s commands:
+To **uninstall IntelliJ** installed from the above PPA, use these Linux’s commands:
 
 ```
 sudo apt remove intellij-idea-community 
@@ -121,24 +160,32 @@ sudo add-apt-repository --remove ppa:mmk2410/intellij-idea-community
 ```
 
 ## Option 5: Install IntelliJ IDEA from Source using Ubuntu
-
+    
 Although, install IntelliJ IDEA on Ubuntu from the source is a little difficult, but you can download the latest version of one, which means there will have more features. 
 
 So to install, you should follow:
 
-Go to [Jetbrains’s Download Center](https://www.jetbrains.com/idea/download/)
-
+<ol id="steps">
+<li>
+Go to <a href="https://www.jetbrains.com/idea/download/">Jetbrain's Download Center</a>
+<br/>
 Choose Linux, and download the version you want to install
 
 {% picture lazy-load /assets/img/posts/14/choose-version-jetbrains-install-intellij-idea-linux.webp --alt Choose Linux Version to Install IntelliJ IDEA %}
+</li>
 
-Extract the downloaded files to `/opt` directory by running this command:
+<li>
+Extract the downloaded files to <code>/opt</code> directory by running this command:
 
-```
+{% highlight bash %}
 sudo tar -xzf ideaIU.tar.gz -C /opt
-```
+{% endhighlight %}
+</li>
 
-Execute the `idea.sh` script from the extracted directory to run IntelliJ IDEA.
+<li>
+Execute the <code>idea.sh</code> script from the extracted directory to run IntelliJ IDEA.
+</li>
+</ol>
 
 ## Conclusion
 

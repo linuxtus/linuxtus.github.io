@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Install and Uninstall Alacritty Terminal Emulator on Ubuntu
+title: Install and Uninstall Alacritty Terminal Emulator on Ubuntu
 description: Alacritty Terminal is the fastest Linux terminal emulator currently available. It makes advantage of the GPU for rendering. Here's how to get it working in Ubuntu or others Linux.
 thumbnail-img: "/assets/img/posts/10/how-to-install-alacritty-on-ubuntu.webp"
 lang: en
@@ -21,11 +21,27 @@ The terminal emulator is one of the most controversial applications in Linux. Th
 
 {% picture lazy-load /assets/img/posts/10/alacritty-is-a-gpu-accelerated-terminal-emulator.webp --alt Alacritty is a cross-platform, GPU-accelerated linux terminal emulator %}
 
-## Prerequisites?
+## System Requirements
 
-* Operating system: Linux - Ubuntu 18.04 to 20.10 with 2GB RAM (4GB preferable)
-* You can use a terminal to run Linux script
-* A user account with sudo privileges
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Category</th>
+            <th scope="col">System Requirements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>OS</td>
+            <td>Linux - Ubuntu 18.04 to 21.10 with 2GB RAM (4GB preferable)</td>
+        </tr>
+        <tr>
+            <td>Access</td>
+            <td>Privileged access to your Linux system as root or via the sudo command.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## Option 1: Install Alacritty on Ubuntu using APT?
 

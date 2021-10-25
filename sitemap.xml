@@ -9,6 +9,7 @@ layout: none
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+
 <url>
   <loc>https://tgbao.me/</loc>
   <changefreq>daily</changefreq>
@@ -17,7 +18,6 @@ layout: none
 
 <url>
   <loc>https://tgbao.me/search/</loc>
-  <changefreq>daily</changefreq>
   <priority>0.60</priority>
 </url>
 
@@ -32,6 +32,15 @@ layout: none
   <changefreq>daily</changefreq>
   <priority>0.60</priority>
 </url>
+
+<!-- Tag -->
+{% for tag in site.tags %}
+<url>
+  <loc>https://tgbao.me/tag/{{ tag[0] }}/</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.60</priority>
+</url>
+{% endfor %}
 
 {% for post in site.posts %}
 <url>
