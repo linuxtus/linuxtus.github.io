@@ -38,30 +38,53 @@
     </div>
   </div>
 
-  {% if posts %}
+  {% if relate %}
+
   <ul class="mt-5 lastest-posts list-unstyled">
-    {% for p in posts limit: 8 %}
-    <li>
-      <div class="row">
-        <div class="col-4">
-          <a href="{{ p.url | absolute_url }}">
-            {% picture lazy-load-suggest {{ p.thumbnail-img }} --alt {{ p.title }} %}
-          </a>
-        </div>
-        <div class="col-8 p-0">
-          <div class="post-suggest-title">
-            <h4 class="m-0"><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></h4>
-          </div>
-          <div class="post-suggest-date m-0">
-            <span>{{ p.date | date: "%B %-d, %Y" }}</span>
-          </div>
-        </div>
-      </div>
-      <div class="my-4">
-        <hr />
-      </div>
-    </li>
+    {% assign maxRelated = 4 %}
+    {% assign minCommonTags =  1 %}
+    {% assign maxRelatedCounter = 0 %}
+
+    {% for p in site.posts %}
+      {% assign sameTagCount = 0 %}
+      {% assign commonTags = '' %}
+
+      {% for tag in p.tags %}
+        {% if p.url != page.url %}
+          {% if page.tags contains tag %}
+            {% assign sameTagCount = sameTagCount | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if sameTagCount >= minCommonTags %}
+          <li>
+            <div class="row">
+              <div class="col-4">
+                <a href="{{ p.url | absolute_url }}">
+                  {% picture lazy-load-suggest {{ p.thumbnail-img }} --alt {{ p.title }} %}
+                </a>
+              </div>
+              <div class="col-8 p-0">
+                <div class="post-suggest-title">
+                  <h4 class="m-0"><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></h4>
+                </div>
+                <div class="post-suggest-date m-0">
+                  <span>{{ p.date | date: "%B %-d, %Y" }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="my-4">
+            </div>
+          </li>
+
+        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+        {% if maxRelatedCounter >= maxRelated %}
+          {% break %}
+        {% endif %}
+      {% endif %}
     {% endfor %}
-  {% endif %}
   </ul>
+
+  {% endif %}
 </aside>

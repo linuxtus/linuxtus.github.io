@@ -1,13 +1,4 @@
 <head>
-  {% if jekyll.environment == 'production' %}
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-R3RJFJQLCL');
-  </script>
-  {% endif %}
-
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="profile" href="https://gmpg.org/xfn/11" />
@@ -18,10 +9,8 @@
   <link rel="pingback" href="" />
 
   <link rel='preconnect' href='https://fonts.googleapis.com' />
-  <link rel='preconnect' href='https://fonts.gstatic.com' />
-  <meta http-equiv='x-dns-prefetch-control' content='on'>
-  <link rel='dns-prefetch' href='//fonts.googleapis.com' />
-  <link rel='dns-prefetch' href='//fonts.gstatic.com' />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 
   {%- capture title -%} 
     {%- if layout.title -%}
@@ -46,7 +35,7 @@
     {%- elsif page.thumbnail-img -%} 
       {{- page.thumbnail-img -}}
     {%- else -%}
-      assets/img/avatar-icon.webp
+      assets/img/avatar-icon.png
     {%- endif -%}
   {%- endcapture -%}
 
@@ -63,14 +52,14 @@
   {% endif %}
 
   <meta property="og:site_name" content="tgbao.me" />
-  <meta property="og:title" content="{{ title }} - tgbao.me" />
+  <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ description }}" />
   <meta property="og:url" content="{{ page.url | absolute_url | strip_index }}" />
 
   {% if page.path contains '_posts' %}
     <meta property="og:type" content="article" />
-    <meta property="og:image" content="{{ page.thumbnail-img | absolute_url }}" />
-    <meta property="og:image:secure_url" content="{{ page.thumbnail-img | absolute_url }}" />
+    <meta property="og:image" content="{{ img | absolute_url }}" />
+    <meta property="og:image:secure_url" content="{{ img | absolute_url }}" />
     <meta property="og:image:alt" content="{{ title }}" />
     <meta property="article:publisher" content="https://facebook.com/tgbaodeeptry" />
     <meta property="article:author" content="tgbao2703" />
@@ -80,14 +69,14 @@
     <meta property="article:section" content="{{ page.categories }}" />
   {% else %}
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ site.url }}/assets/img/avatar-icon.webp" />
-    <meta property="og:image:secure_url" content="{{ site.url }}/assets/img/avatar-icon.webp" />
+    <meta property="og:image" content="{{ site.url }}/assets/img/avatar-icon.png" />
+    <meta property="og:image:secure_url" content="{{ site.url }}/assets/img/avatar-icon.png" />
   {% endif %}
   
   <meta property="twitter:domain" content="tgbao.me" />
   <meta property="twitter:url" content="{{ page.url | absolute_url | strip_index }}">
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ title }} - tgbao.me" />
+  <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{{ description }}" />
   <meta name="twitter:image" content="{{ img | absolute_url }}" />
 
@@ -101,19 +90,34 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "organization",
-      "@id": "#organization",
-      "image": {
-          "@type": "ImageObject",
-          "url": "{{ img | absolute_url | replace: 'index.html', '' }}"
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "@id": "https://tgbao.me/#webpage",
+    "url": "https://tgbao.me/",
+    "name": "Tech blog for everyone",
+    "alternateName": "Help you know programming, software, tutorial, crypto, operating system, anything related to tech.",
+    "description": "Help you know programming, software, tutorial, crypto, operating system, anything related to tech.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://tgbao.me/assets/img/avatar-icon.png"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://tgbao.me/search?s={search_term}"
       },
-      "url": "https://tgbao.me",
-      "name": "tgbao.me",
-      "description": "Help you know programming, software, tutorial, crypto, operating system, anything related to tech."
-    }
+      "query-input": {
+        "@type": "PropertyValueSpecification",
+        "valueRequired": "http://schema.org/True",
+        "valueName": "search_term"
+      }
+    },
+    "inLanguage": "en-US"
+  }
   </script>
+
 
   <style>
     {% capture include_to_scssify %}
@@ -131,4 +135,5 @@
     {{ include_highlight }}
   </style>
 
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 </head>

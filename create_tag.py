@@ -41,7 +41,7 @@ if not os.path.exists(tag_dir):
 for tag in total_tags:
     tag_filename = tag_dir + tag + '.md'
     f = open(tag_filename, 'a')
-    write_str = f'---\nlayout: tag_page\ntitle: {tag.capitalize()} Tag\ntag: ' + tag + '\nnocanonical: true\nfollow-noindex: true\npagination:\n  enabled: true\n  tag: ' + tag + ' \n---\n'
+    write_str = f'---\nlayout: tag_page\ntitle: {tag.capitalize()} Tag\ntag: ' + tag + '\nnocanonical: true\nfollow-noindex: true\npagination:\n  enabled: true\n  tag: ' + tag.capitalize() + '\ndescription: ' + tag + " Tag - tgbao.me - Help you know programming, software, tutorial, crypto, operating system, anything related to tech." + ' \n---\n'
     f.write(write_str)
     f.close()
 

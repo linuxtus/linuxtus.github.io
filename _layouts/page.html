@@ -2,34 +2,39 @@
 layout: base
 ---
 
+{%- capture title -%} 
+  {%- if layout.title -%}
+    {{- layout.title -}}
+  {%- elsif page.title -%} 
+    {{- page.title -}}
+  {%- endif -%}
+  {% if page.pagination_info.curr_page and page.pagination_info.curr_page != 1 %} - Page {{page.pagination_info.curr_page}} of {{page.pagination_info.total_pages}}{% endif %}
+{%- endcapture -%}
+
+{%- capture description -%} 
+  {%- if layout.description -%}
+    {{- layout.description -}}
+  {%- elsif page.description -%} 
+    {{- page.description -}}
+  {%- endif -%}
+{%- endcapture -%} 
+
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "{{ layout.title }}",
-    "alternateName": "{{ layout.description }}",
+    "name": "{{ title }}",
+    "alternateName": "{{ description }}",
     "url": "{{ site.url }}{{ page.url | replace: 'index.html', '' }}",
-    "description": "{{ layout.description }}",
+    "description": "{{ description }}",
     "image": {
       "@type": "ImageObject",
-      "url": "https://tgbao.me/assets/img/avatar-icon.webp"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://tgbao.me/search?s={search_term}"
-      },
-      "query-input": {
-        "@type": "PropertyValueSpecification",
-        "valueRequired": "http://schema.org/True",
-        "valueName": "search_term"
-      }
+      "url": "https://tgbao.me/assets/img/avatar-icon.png"
     }
   }
 </script>
 
-<div class="container-fluid p-0" role="main">
+<div class="container p-0" role="main">
   <div class="row justify-content-center">
     {% if page.before-content %}
     <div class="before-content">

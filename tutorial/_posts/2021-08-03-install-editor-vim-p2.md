@@ -11,9 +11,7 @@ categories:
 tags: tools development
 ---
 
-Hello guys, in the [previous article](https://tgbao.me/install-editor-vim-p1/) I introduced you to Vim, how to install Vim and some basic operations. In today's article, I will show you how to refine Vim and install some variable plugins.
-
-In this article I will work in full with Linux, with some of you using MacOS, Windows you can do the same
+Hello guys, in the [previous article](https://tgbao.me/install-editor-vim-p1/) I introduced you to Vim, how to install Vim Editor and some basic operations. In today's article, I will show you how to refine Vim and install some variable plugins. I will work in full with Linux, with some of you using MacOS, Windows you can do the same
 
 <div class="bg-light sidebar-module sidebar-module-inset" id="toc"></div>
 
@@ -73,18 +71,18 @@ set ttimeoutlen=60
 set cursorline'
 ```
 
-Save and exit by command `:wq` When we reopen, we'll have an interface like this.
+Save and exit Vim by command `:wq` When we reopen, we'll have an interface like this.
 
 {% picture lazy-load /assets/img/posts/6/vim-themes-after-config-editor-vim.webp --alt Vim's theme after config %}
 
-## Install Plugin for VIM
+## Install Plugin for Vim Editor
 
 We have two ways to install plugins for Vim:
 
 *   Install pure Vim by hand
 *   Install Vim with Plugin management packages
 
-### \# Manual Vim Installation
+### Manual Vim Installation
 
 Default, folder `~/.vim` there will be no structure to install plugins, we will create folders by
 
@@ -100,15 +98,15 @@ For example, when installing --NERDTree-- (Sidebar selects file), we do:
 $ git clone --depth 1 https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
 ```
 
-### \# Install Vim with Plugin management packages
+### Install Vim with Plugin management packages
 
-There are many plugin management packages such as Bundle, Vim-Plug, Pathogen,... and so on. In this article I will use it `Vim-Plug`. Because I think it has a lot of good features.
+There are many Vim's plugin management packages such as Bundle, Vim-Plug, Pathogen,... and so on. In this article I will use it `Vim-Plug`. Because I think it has a lot of good features.
 
 *   Compact syntax, easy to remember
 *   Pretty fast
 *   Installation is also easy.
 
-#### \# How to install:
+#### How to install Vim-Plug
 
 **Linux / MacOS**
 
@@ -123,7 +121,7 @@ $ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
     ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
 ```
 
-#### \# Use:
+#### Use Vim-Plug
 
 1.  We open `~/.vimrc` up
 2.  Find which part is empty :))
@@ -180,7 +178,7 @@ There are also some commands such as:
 
 ## Some popular plugins for Vim
 
-### # [vim-airline](https://github.com/vim-airline/vim-airline)
+### [vim-airline](https://github.com/vim-airline/vim-airline)
 
 Plugin changes the look and look for Vim's status bar
 
@@ -192,7 +190,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 You can visit [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes#vim-airline-themes--) to choose your favorite themes.
 
-### # [nerdtree](https://github.com/preservim/nerdtree)
+
+### [nerdtree](https://github.com/preservim/nerdtree)
+
 
 Plugin showing folders, files in tree form
 
@@ -207,7 +207,7 @@ filetype plugin indent on
 
 {% picture lazy-load /assets/img/posts/6/nerd-tree-for-editor-vim.webp --alt Plugin NERDTree for Vim %}
 
-### # [nerd commenter](https://github.com/preservim/nerdcommenter)
+### [Nerd Commenter](https://github.com/preservim/nerdcommenter)
 
 Diverse comment plugins for Vim
 
@@ -216,7 +216,7 @@ Diverse comment plugins for Vim
 Plug 'preservim/nerdcommenter'
 ```
 
-### # [fzf](https://github.com/junegunn/fzf.vim)
+### [fzf](https://github.com/junegunn/fzf.vim)
 
 Quick file search plugin
 
@@ -226,7 +226,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 ```
 
-### # [vim-surround](https://github.com/tpope/vim-surround)
+### [Vim Surround](https://github.com/tpope/vim-surround)
 
 Fast-working plugin with brackets, xml tags, quotes, apostrophes ...
 
@@ -237,9 +237,9 @@ Plug 'tpope/vim-surround'
 
 ## Set the interface for Vim
 
-### # [Dracula Theme](https://github.com/dracula/vim)
+### [Dracula Theme](https://github.com/dracula/vim)
 
-*   Install
+*   Install Dracula Theme
 
 ```
 " Vim-Plug
@@ -253,13 +253,13 @@ colorscheme dracula
 :PlugInstall
 ```
 
-*  Images
+* Dracula Theme's Images
 
 {% picture lazy-load /assets/img/posts/6/dracula-theme-for-editor-vim.webp --alt Dracula Theme for Vim %}
 
-### # [Monokai Theme](https://github.com/sickill/vim-monokai)
+### [Monokai Theme](https://github.com/sickill/vim-monokai)
 
-*   Install
+*   Install Monokai Theme
 
 ```
 " Install with Vim-Plug
@@ -273,13 +273,13 @@ colorscheme monokai
 :PlugInstall
 ```
 
-*   Images
+*   Monokai Theme's Images
 
 {% picture lazy-load /assets/img/posts/6/monokai-theme-for-editor-vim.webp --alt Monokai Theme for Vim %}
 
-### #  [Solarized Theme](https://github.com/altercation/vim-colors-solarized)
+### [Solarized Theme](https://github.com/altercation/vim-colors-solarized)
 
-*   Install
+*   Install Solarized Theme
 
 ```
 " Install with Vim-Plug
@@ -295,7 +295,7 @@ colorscheme solarized
 :PlugInstall
 ```
 
-*   Images
+*   Solarized Theme's Images
 
 {% picture lazy-load /assets/img/posts/6/solarized-theme-for-editor-vim.webp --alt Solarized theme for Vim %}
 

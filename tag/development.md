@@ -6,5 +6,6 @@ nocanonical: true
 follow-noindex: true
 pagination:
   enabled: true
-  tag: development 
+  tag: Development
+description: development Tag - tgbao.me - Help you know programming, software, tutorial, crypto, operating system, anything related to tech. 
 ---

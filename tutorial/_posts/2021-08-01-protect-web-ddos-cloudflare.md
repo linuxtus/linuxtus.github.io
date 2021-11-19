@@ -7,9 +7,7 @@ lang: en
 redirect_from:
 - /how-to-protect-web-from-ddos-cloudflare/
 categories: tutorial
-tags:
-- tools
-- web
+tags: tools web
 ---
 
 A website is called complete only if it meets the criteria of speed, flexibility, interface, etc. And an important part of that is the ability to prevent external-scale denial-of-service (DOS) attacks.

@@ -15,7 +15,8 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   background-color: #fff;
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Sofia Pro', sans-serif;
+  line-height: 28px;
 }
 
 h1,
@@ -24,24 +25,37 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 700 !important;
+  font-weight: 700;
   line-height: 1.2;
 }
 
-h1 {
-  font-size: 1.9rem;
+@media (min-width: 600px) {
+  h2 {
+    font-size: 46px;
+    line-height: 54px;
+  }
+
+  h3 {
+    font-size: 36px;
+    line-height: 42px;
+  }
 }
 
 h2 {
-  font-size: 1.675rem;
+  font-size: 34px;
+  line-height: 40px;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 500;
 }
 
+h1 { font-size: 2rem; }
 h4 {
-  font-size: 1.025rem;
+  font-size: 1rem; 
+  font-weight: 500;
 }
 
 a {
@@ -69,7 +83,6 @@ hr.small {
   border-color: inherit;
   border-radius: 0.1875rem;
 }
-
 
 .nav-item .nav-link {
   color: white;
@@ -159,9 +172,12 @@ pre {
 }
 
 .blog-post p {
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 800 !important;
 }
 
 .blog-post h1,
@@ -169,8 +185,8 @@ pre {
 .blog-post h3,
 .blog-post h4,
 .blog-post h5 {
-  margin-top: 1.7rem;
-  margin-bottom: 1.7rem;
+  margin-top: 1.4rem;
+  margin-bottom: 0.9rem;
   color: #313131;
 }
 
@@ -265,7 +281,7 @@ pre {
   color: #313131;
   font-weight: 400;
   font-family: 'Rubik', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .tagcloud a,
@@ -286,7 +302,6 @@ pre {
 
 #toc li a {
   text-decoration: none;
-  font-size: 0.9rem;
 }
 
 .form-signup,
@@ -361,7 +376,7 @@ img {
 }
 
 .blog-post img {
-  box-shadow: 0 10px 20px 0 rgb(35 47 62 / 15%);
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%), 0 0 6px 0 rgb(0 0 0 / 10%), 0 2px 2px -2px rgb(0 0 0 / 15%);
   margin-top: 1.3rem;
   margin-bottom: 1.3rem;
 }
@@ -403,14 +418,6 @@ img {
   font-size: 1.3rem;
 }
 
-.blog-post h2::after {
-  margin-top: 0.5rem;
-  border-top: 4px solid #175cd4;
-  content: "";
-  display: block;
-  width: 100px;
-}
-
 #breadcrumb {
   font-size: 0.9em;
 }
@@ -421,16 +428,17 @@ img {
 
 #breadcrumblist li {
   display: inline;
-  padding-left: .5em;
-  padding-right: .5em;
+  padding-left: .3em;
+  padding-right: .3em;
   text-transform: capitalize;
 }
 
 #breadcrumblist li a {
   border-color: initial;
-  padding-right: 1em;
+  padding-right: .6em;
   color: rgb(13, 110, 253);
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 #steps {
@@ -448,7 +456,7 @@ img {
   border-bottom-color: rgb(154, 143, 127);
   background-color: rgb(61, 66, 68);
   color: rgb(255, 253, 250);
-  content: "Step " counter(step-counter) "";
+  content: counter(step-counter ,decimal-leading-zero) ".";
   border-bottom: 0.5px solid black;
   line-height: 20pt;
   margin-right: 5px;
@@ -463,4 +471,60 @@ img {
 
 .blog-post table {
   margin-top: 1rem;
+}
+
+code {
+  background-color: rgba(243,244,246,1);
+}
+
+a {
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+
+#go-top-button {
+  display: inline-block;
+  background-color: #276ae6!important;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 50px !important;
+  right: 10px !important;
+  transition: background-color .3s,opacity .5s,visibility .5s;
+  z-index: 1005;
+}
+
+#go-top-button:hover {
+  cursor: pointer;
+}
+
+#go-top-button svg {
+  color: #fff;
+}
+
+svg text {
+  font-size: 1.5rem;
+}
+
+.lastest-posts img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lastest-posts-below img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 992px) {
+  .lastest-posts-below img {
+    height: 150px;
+  }
 }

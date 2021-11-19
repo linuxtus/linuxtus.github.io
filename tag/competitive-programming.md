@@ -6,5 +6,6 @@ nocanonical: true
 follow-noindex: true
 pagination:
   enabled: true
-  tag: competitive-programming 
+  tag: Competitive-programming
+description: competitive-programming Tag - tgbao.me - Help you know programming, software, tutorial, crypto, operating system, anything related to tech. 
 ---

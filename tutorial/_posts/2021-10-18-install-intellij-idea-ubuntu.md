@@ -1,8 +1,8 @@
 ---
 layout: post
 thumbnail-img: "/assets/img/posts/14/how-to-install-intellij-idea-ubuntu.webp"
-title: How to Install IntelliJ IDEA on Ubuntu 21.10
-description: IntelliJ IDEA is a Java, Kotlin IDE. This is step by step guide to install IntelliJ IDEA on Ubuntu 21.10 and other Linux distributions very easily.
+title: How to Install IntelliJ IDEA on Ubuntu 21.04
+description: IntelliJ IDEA is a Java, Kotlin IDE. This is step by step guide to install IntelliJ IDEA on Ubuntu 21.04 and other Linux distributions very easily.
 lang: en
 categories:
 - tutorial
@@ -24,6 +24,8 @@ tags: development ubuntu
 
 In this post, I will help you to install IntelliJ IDEA on Ubuntu. It has many ways, but this post will introduce some easiest guide. Let go.
 
+{% picture lazy-load /assets/img/posts/14/how-to-install-intellij-idea-ubuntu.webp --alt How to Install IntelliJ IDEA on Ubuntu 21.04 %} 
+
 ## Option 1: Install IntelliJ IDEA from the Software Center Ubuntu
 
 If you are using Ubuntu, I think Software Center Ubuntu should be your first choice. Because it contains many packages (also IntelliJ IDEA), and you can install them very easily.
@@ -42,7 +44,7 @@ You just have to search IntelliJ IDEA and it will show the possible results.
 </li>
 
 <li>
-Choose the version you want to install on your Ubuntu 21.10 and click the Install button.
+Choose the version you want to install on your Ubuntu 21.04 and click the Install button.
 
 {% picture lazy-load /assets/img/posts/14/click-install-button-install-intellij-ubuntu.webp --alt Click Install Ubuntu to Install IntelliJ IDEA %}
 </li>

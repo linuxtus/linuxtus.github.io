@@ -1,10 +1,13 @@
 ---
 title: Tech blog for everyone
-description: Help you know programming, software, tutorial, crypto, operating system, anything related to tech.
+description: Blog helps you know to know about Programming, Developing, Linux Tutorial, Tips to improve your coding skills and more. 
 layout: page
 lang: en
 ---
 
+<h1 class="d-none">tgbao.me - Tech blog for everyone - Help you know programming, developing</h1>
+
+{% if paginator.posts.first.url == site.posts.first.url %}
 <div class="col-12 p-0">
   <div class="mt-5">
     <article class="post-body">
@@ -45,6 +48,7 @@ lang: en
     </article>
   </div>
 </div>
+{% endif %}
 
 <div class="col-12 col-lg-8 p-0">
   <div class="row">

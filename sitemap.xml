@@ -12,41 +12,13 @@ layout: none
 
 <url>
   <loc>https://tgbao.me/</loc>
-  <changefreq>daily</changefreq>
   <priority>1.00</priority>
 </url>
-
-<url>
-  <loc>https://tgbao.me/search/</loc>
-  <priority>0.60</priority>
-</url>
-
-<url>
-  <loc>https://tgbao.me/tutorial/</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.60</priority>
-</url>
-
-<url>
-  <loc>https://tgbao.me/sharing/</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.60</priority>
-</url>
-
-<!-- Tag -->
-{% for tag in site.tags %}
-<url>
-  <loc>https://tgbao.me/tag/{{ tag[0] }}/</loc>
-  <changefreq>daily</changefreq>
-  <priority>0.60</priority>
-</url>
-{% endfor %}
 
 {% for post in site.posts %}
 <url>
   <loc>https://tgbao.me{{ post.url }}</loc>
   <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
-  <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 {% endfor %}

@@ -5,6 +5,12 @@
 
 {% if jekyll.environment == 'production' %}
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R3RJFJQLCL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R3RJFJQLCL');
+  </script>
 {% endif %}
 
 <!-- Post -->
@@ -19,29 +25,43 @@
 
   <!-- load addthis -->
   <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      const script = document.createElement('script');
-      script.async = 'true';
-      script.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615d7bbba282b8c0';
-      setTimeout(function() {
-        document.head.append(script);
-      }, 3000);
-    });
-  </script>
+    window.addEventListener('load', function() {
+      var is_load = 0
 
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      const script = document.createElement('script');
-      script.async = 'true';
-      script.defer = 'true';
-      script.crossorigin = "anonymous";
-      script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=248296667114055&autoLogAppEvents=1";
-      script.nonce = "5wVoky5Z";
-      setTimeout(function() {
-        document.head.append(script);
-      }, 3000);
+      window.addEventListener('scroll', function() {
+        if (is_load == 0) {
+          is_load = 1
+          var an = document.createElement('script')
+          an.async = true;
+          an.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615d7bbba282b8c0'
+          var sc = document.getElementsByTagName('script')[0]
+          sc.parentNode.insertBefore(an, sc);
+        }
+      })
     })
   </script>
+
+  <!-- load facebook comments -->
+  <script>
+    window.addEventListener('load', function() {
+      var is_load_fb = 0
+
+      window.addEventListener('scroll', function() {
+        if (is_load_fb == 0) {
+          is_load_fb = 1
+          var an = document.createElement('script')
+          an.async = true;
+          an.defer = true;
+          an.crossorigin = "anonymous";
+          an.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=248296667114055&autoLogAppEvents=1'
+          an.nonce = "5wVoky5Z";
+          var sc = document.getElementsByTagName('script')[0]
+          sc.parentNode.insertBefore(an, sc);
+        }
+      })
+    })
+  </script>
+
 {% endif %}
 
 {% if page.name == "search.html" %}
