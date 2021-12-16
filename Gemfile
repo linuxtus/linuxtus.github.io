@@ -9,4 +9,6 @@ group :jekyll_plugins do
   gem 'jekyll-target-blank'
   gem 'jekyll-redirect-from'
   gem 'jekyll-last-modified-at'
+  gem "premonition", "4.0.1"
+  gem "cssminify2", :git => 'https://github.com/bbbenji/cssminify'
 end

@@ -14,19 +14,17 @@
 <header class="header-section {% if page.cover-img %}has-img{% endif %}">
   <div class="intro-header no-img">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 p-0">
         <span class="{{ include.type }}-heading">
           <h1>{% if page.title %}{{ page.title }}{% else %}<br />{% endif %}</h1>
         </span>
 
-        {% if include.type == "post" %}
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar"
           viewBox="0 0 16 16">
           <path
             d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
         </svg>
         <span class="post-date-small">{{ page.date | date: "%B %-d, %Y" }}</span>
-        {% endif %}
 
         <br />
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"

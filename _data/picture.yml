@@ -22,7 +22,7 @@ presets:
     format_quality:
       webp: 100
     formats: [webp]
-    widths: [800, 1200]
+    widths: [1000, 1400]
     dimension_attributes: true
     markup: data_img
     noscript: false
@@ -32,7 +32,7 @@ presets:
     format_quality:
       webp: 100
     formats: [webp]
-    widths: [400]
+    widths: [800]
     dimension_attributes: true
     markup: data_img
     noscript: false

@@ -2,7 +2,7 @@
     $.fn.toc = function (options) {
         var defaults = {
                 noBackToTopLinks: false,
-                title: 'Table of Content',
+                title: '',
                 minimumHeaders: 3,
                 headers: 'h1, h2, h3, h4, h5, h6',
                 listType: 'ul', // values: [ol|ul]
@@ -28,7 +28,6 @@
         }
 
         var headers = $(settings.headers).filter(function () {
-                // get all headers with an ID
                 var previousSiblingName = $(this).prev().attr("name");
                 if (!this.id && previousSiblingName) {
                     this.id = $(this).attr("id", previousSiblingName.replace(/\./g, "-"));
@@ -66,11 +65,12 @@
         var highest_level = headers.map(function (_, ele) {
             return get_level(ele);
         }).get().sort()[0];
+
         var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
 
         var level = get_level(headers[0]),
             this_level,
-            html = "<p>" + settings.title + "</p><hr/>" + " <" + settings.listType + " class=\"" + settings.classes.list + "\">";
+            html = " <" + settings.listType + " class=\"" + settings.classes.list + "\">";
 
         headers.on('click', function () {
                 if (!settings.noBackToTopLinks) {
@@ -97,7 +97,7 @@
                 }
                 level = this_level; // update for the next one
             });
-        html += "</" + settings.listType + ">";
+        html += '</' + settings.listType + '>';
         if (!settings.noBackToTopLinks) {
             $(document).on('click', '.back-to-top', function () {
                 $(window).scrollTop(0);
@@ -106,5 +106,77 @@
         }
 
         render[settings.showEffect]();
+
+        // -------------------------------------------------
+        let startOffset = $("#toc").offset().top - $("#toc").height() + 50;
+        let sideBarWidth = $("#sidebar").width();
+
+        $(window).bind("scroll", function() {
+            if($('#toc:visible').length == 0) {
+                return;
+            }
+
+            let curOffset = $(this).scrollTop();
+
+            if (curOffset > startOffset) {
+                if (curOffset < $(".blog-post").offset().top + $(".blog-post").height() - $("#toc").height()) {
+                    $("#toc").addClass("sticky-top")
+                    $("#toc").width(sideBarWidth)
+
+                    if ($("#toc").hasClass("sticky-bottom")) $("#toc").removeClass("sticky-bottom")
+                } else {
+                    if ($("#toc").hasClass("sticky-top")) $("#toc").removeClass("sticky-top")
+                    $("#toc").addClass("sticky-bottom")
+                }
+            } else {
+                if ($("#toc").hasClass("sticky-top")) $("#toc").removeClass("sticky-top")
+            }
+        });
+
+        window.onload = function() {
+            var toc = document.querySelector( '#toc' );
+            var tocItems;
+
+            window.addEventListener( 'resize', drawPath, false );
+            window.addEventListener( 'scroll', sync, false );
+
+            drawPath();
+
+            function drawPath() {
+                tocItems = [].slice.call( toc.querySelectorAll( 'li' ) );
+
+                tocItems = tocItems.map( function( item ) {
+                    var anchor = item.querySelector( 'a' );
+                    var target = document.getElementById( anchor.getAttribute( 'href' ).slice( 1 ) );
+
+                    return {
+                        listItem: item,
+                        anchor: anchor,
+                        target: target
+                    };
+                } );
+
+                tocItems = tocItems.filter( function( item ) {
+                    return !!item.target;
+                } );
+
+                sync();
+            }
+
+            function sync() {
+                var windowHeight = window.innerHeight;
+
+                tocItems.forEach( function( item ) {
+                    var targetBounds = item.target.getBoundingClientRect();
+
+                    if(targetBounds.top < windowHeight * (1 - 0.6)) {
+                        item.listItem.classList.add( 'visible' );
+                    }
+                    else {
+                        item.listItem.classList.remove( 'visible' );
+                    }
+                } );
+            }
+        };
     };
 })(jQuery);

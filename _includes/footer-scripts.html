@@ -20,6 +20,7 @@
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       $('#toc').toc();
+      $("#toc-post").toc();
     })
   </script>
 
@@ -32,8 +33,8 @@
         if (is_load == 0) {
           is_load = 1
           var an = document.createElement('script')
-          an.async = true;
-          an.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615d7bbba282b8c0'
+          an.async = 'true';
+          an.src = '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-615d7bbba282b8c0';
           var sc = document.getElementsByTagName('script')[0]
           sc.parentNode.insertBefore(an, sc);
         }
@@ -41,29 +42,40 @@
     })
   </script>
 
-  <!-- load facebook comments -->
+  <!-- load comments -->
+  <script id="dsq-count-scr" src="//https-tgbao-me.disqus.com/count.js" async></script>
+
+  <!-- load scroll effect -->
+  <div class="header-progress">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+  </div>
+
   <script>
-    window.addEventListener('load', function() {
-      var is_load_fb = 0
-
-      window.addEventListener('scroll', function() {
-        if (is_load_fb == 0) {
-          is_load_fb = 1
-          var an = document.createElement('script')
-          an.async = true;
-          an.defer = true;
-          an.crossorigin = "anonymous";
-          an.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=248296667114055&autoLogAppEvents=1'
-          an.nonce = "5wVoky5Z";
-          var sc = document.getElementsByTagName('script')[0]
-          sc.parentNode.insertBefore(an, sc);
-        }
-      })
-    })
+    window.onscroll = function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById("progress-bar").style.width = scrolled + "%";
+    };
   </script>
-
 {% endif %}
 
 {% if page.name == "search.html" %}
   <script defer src="/assets/js/search-posts.js"></script>
 {% endif %}
+
+<!-- load mailchimp -->
+<script id="mcjs">
+  window.addEventListener('load', function() {
+    var is_load_mailchimp = 0
+
+    window.addEventListener('scroll', function() {
+      if (is_load_mailchimp == 0) {
+        is_load_mailchimp = 1
+        !function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/41c67fbcba7ea4c2b27706c4c/f923a9151878494cf95731cd2.js");
+      }
+    })
+  })
+</script>

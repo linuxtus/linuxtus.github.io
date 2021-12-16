@@ -23,41 +23,53 @@ layout: base
     "publisher": {
       "@context": "http://schema.org",
       "@type": "Organization",
-      "@id": "{{ site.url }}#person",
+      "@id": "{{ site.url }}/#organization",
       "name": "tgbao.me",
+      "url": "{{ site.url }}",
       "logo": {
         "@context": "http://schema.org",
         "@type": "ImageObject",
         "url": "https://tgbao.me/assets/img/avatar-icon.png"
-      }
+      },
+      "contactPoint": {
+        "@type" : "ContactPoint",
+        "telephone" : "+84919009319",
+        "email": "tgbao2703@gmail.com"
+      },
+      "sameAs": [
+        "https://www.pinterest.com/tgbaome/",
+        "https://twitter.com/tgbaome",
+        "https://www.facebook.com/tgbaome/",
+        "https://www.youtube.com/channel/UCASQrvTnzDeWzH7DLZGpNkA/"
+      ]
     },
     "author": {
       "@context": "http://schema.org",
       "@type": "Person",
-      "@id": "{{ site.url }}{{ page.url }}#author",
-      "url": "https://facebook.com/tgbaodeeptry",
-      "name": "Bao",
+      "@id": "{{ site.url }}{{ page.url }}/#author",
+      "url": "https://www.facebook.com/tgbaodeeptry",
+      "name": "Trần Gia Bảo",
+      "jobTitle": "Founder & CEO",
       "sameAs": [
-        "https://www.pinterest.com/tgbao2703/",
-        "https://www.linkedin.com/in/tr%E1%BA%A7n-gia-b%E1%BA%A3o-a336ba224/",
-        "https://twitter.com/tgbao27031",
+        "https://www.linkedin.com/in/tgbaodeeptry/",
         "https://github.com/tgbaodeeptry"
       ]
-    }
+    },
+    "articleBody": "{{ content | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | replace: '"', "'" | replace: '&', '\x26' | replace: '\', '' }}"
   }
 </script>
 
-<div class="container p-0">
+<div class="container-fluid p-3">
   <div class="row">
     <div class="col-12">
-      <div id="breadcrumb" class="mt-3 mb-0">
+      <div id="breadcrumb" class="mb-0">
         <ul id="breadcrumblist" class="p-0" itemscope itemtype="http://schema.org/BreadcrumbList">
           <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item"
               href="{{ site.url }}"><span itemprop="name">Home</span></a>»
             <meta itemprop="position" content="1" />
           </li>
           <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a itemprop="item"
-              href="{{ site.url }}/{{ page.categories }}/"><span itemprop="name">{{ page.categories }}</span></a>
+              href="{{ site.url }}/{{ page.category }}/"><span itemprop="name">{{ page.category }}</span></a>
             <meta itemprop="position" content="2" />»</li>
           <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span
               itemprop="name">{{ page.title }}</span>
@@ -68,91 +80,85 @@ layout: base
       </div>
     </div>
 
-    <div class="col-12 col-lg-8 p-0">
-      <main role="main" id="main">
-        <article>
-          {% include header.html type="post" %}
+      <div class="col-12 col-lg-8">
+        <main role="main" id="main">
+          <article>
+            {% include header.html type="post" %}
 
-          {% if page.before-content %}
-          <div class="before-content">
-            {% for file in page.before-content %}
-            {% include {{ file }} %}
-            {% endfor %}
-          </div>
-          {% endif %}
-
-          <div class="row">
             <div class="addthis_inline_share_toolbox"></div>
-          </div>
-          <hr />
+            <hr/>
 
-          <div class="row">
             <div class="blog-post">
               {{ content }}
             </div>
-          </div>
 
-          {% if page.tags.size > 0 %}
-          <div class="row">
-            <div class="blog-tags mt-2">
+            <div class="addthis_inline_share_toolbox mt-5"></div>
+
+            <div class="blog-tags mt-3">
               {% for tag in page.tags %}
-              <a rel="tag" href="/tag/{{ tag }}/">{{- tag | replace: "-", " " -}}</a>
+                <a rel="tag" href="{{ '/tag' | relative_url }}/{{- tag -}}/">{{- tag | replace: "-", " " -}}</a>
               {% endfor %}
             </div>
-          </div>
-          {% endif %}
+          </article>
+        </main>
+      </div>
 
-          <div class="row">
-            <div class="addthis_inline_share_toolbox mt-2"></div>
-          </div>
-        </article>
-      </main>
-    </div>
-
-    <div class="col-12 col-lg-4">
-      {% assign relate = true %}
-      {% include right-side.html %}
-    </div>
+      <div class="col-12 col-lg-4" id="sidebar">
+        {% assign relate = true %}
+        {% include right-side.html %}
+      </div>
 
     <aside>
-      <div class="col-12 col-lg-8">
+      <div class="mt-3"></div>
+      <div class="col-12">
         <hr/>
+
         <ul class="list-unstyled">
           <div class="row">
-            {% for p in site.posts limit: 6 %}
-            <div class="col-12 col-lg-4 p-0">
-              <li class="lastest-posts-below mt-3">
-                <div class="row">
-                  <div class="col-4 col-lg-12">
-                    <a href="{{ p.url | absolute_url }}">
-                      {% picture lazy-load-suggest {{ p.thumbnail-img }} --alt {{ p.title }} %}
-                    </a>
-                  </div>
+            {% assign posts = site.posts | where_exp: "post" , "post.url != page.url" %}
+            {% assign maxRelated = 6 %}
+            {% assign maxRelatedCounter = 0 %}
 
-                  <div class="col-8 col-lg-12">
-                    <div class="post-suggest-title mt-1">
-                      <h4 class="m-0"><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></h4>
+            {% for p in posts %}
+              {% unless similarPosts contains p.url %}
+              <div class="col-12 col-lg-4 p-0 px-lg-3">
+                <li class="lastest-posts-below mb-2 mt-3">
+                  <div class="row">
+                    <div class="col-4 col-lg-12 px-lg-1">
+                      <a href="{{ p.url | absolute_url }}">
+                        {% picture lazy-load-suggest {{ p.thumbnail-img }} --alt {{ p.title }} %}
+                      </a>
+                    </div>
+
+                    <div class="col-8 col-lg-12 px-0 px-lg-1 pt-lg-2">
+                      <div class="post-suggest-title">
+                        <h4 class="m-0"><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            </div>
+                </li>
+              </div>
+
+              {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+              {% if maxRelatedCounter >= maxRelated %}
+                {% break %}
+              {% endif %}
+
+              {% endunless %}
             {% endfor %}
           </div>
         </ul>
       </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-12 col-lg-8 p-0 mx-auto">
+          {% include comments.html %}
+        </div>
+      </div>
     </aside>
   </div>
-
-  <aside>
-    <div class="row">
-      <div class="col-12 col-lg-8 p-0">
-        <hr/>
-        {% include comments.html %}
-      </div>
-    </div>
-  </aside>
-
 </div>
 
 <script>

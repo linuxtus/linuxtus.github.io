@@ -1,6 +1,6 @@
 <header id="header" itemscope="itemscope" role="banner" itemtype="https://schema.org/WPHeader">
-  <nav class="navbar navbar-dark bg-dark navbar-expand-md">
-    <div class="container-fluid">
+  <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
+    <div class="container-fluid px-4">
       <a class="navbar-brand" href="/">tgbao.me</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
@@ -8,14 +8,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse my-1" id="main-navbar">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <form class="d-flex" role="search" method="get" action="/search">
-              <input name="s" class="form-control me-2" id="search-post-input" type="search" placeholder="Type and hit Enter ..." aria-label="Search">
-            </form>
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="navbar-nav me-auto mb-lg-0 ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tutorial
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark mb-3" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/linux/">Linux</a></li>
+              <li><a class="dropdown-item" href="/programming/">Programming</a></li>
+              <li><a class="dropdown-item" href="/web/">Web</a></li>
+              <li><a class="dropdown-item" href="/technology/">Technology</a></li>
+            </ul>
           </li>
         </ul>
+        <form class="d-flex" role="search" method="get" action="/search">
+          <input name="s" class="form-control form-control-sm me-2" id="search-post-input" placeholder="Type and Enter" type="search" aria-label="Search">
+        </form>
       </div>
     </div>
   </nav>

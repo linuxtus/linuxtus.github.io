@@ -1,3 +1,19 @@
-<div id="fb-root"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "{{ page.url | absolute_url }}";
+        this.page.identifier = "{{ page.url | absolute_url }}";
+    };
 
-<div class="fb-comments" data-href="https://tgbao.me{{ page.url }}" data-width="100%" data-numposts="5"></div>
+    function load_disqus() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://https-tgbao-me.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        document.getElementsByClassName("disqus-comment")[0].className += " d-none"
+    }
+</script>
+
+<div class="row">
+    <a class="py-3 disqus-comment" href="{{ page.url | absolute_url }}#disqus_thread" onclick="load_disqus()" title="Show Comments">Show Comments</a>
+    <div id="disqus_thread"></div>
+</div>
