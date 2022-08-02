@@ -1,0 +1,54 @@
+    {% if relate %}
+
+  <div class="widget-title mx-2 mt-5"> 
+    <p class="mb-0 heading-suggest"> 
+      You might also like
+    </p>
+  </div>
+  <ul class="mt-4 similar-articles list-unstyled">
+    {% assign similarPosts = "," | split: ',' %}
+
+    {% assign maxRelated = 3 %}
+    {% assign minCommonTags =  1 %}
+    {% assign maxRelatedCounter = 0 %}
+
+    {% for p in site.posts %}
+      {% assign sameTagCount = 0 %}
+      {% assign commonTags = '' %}
+
+      {% for tag in p.tags %}
+        {% if p.url != page.url %}
+          {% if page.tags contains tag %}
+            {% assign sameTagCount = sameTagCount | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if sameTagCount >= minCommonTags %}
+          {% assign similarPosts = similarPosts | push: p.url %}
+
+          <li>
+            <div class="row">
+              <div class="col-4">
+                <a href="{{ p.url | absolute_url }}">
+                  {% picture lazy-load-suggest {{ p.thumbnail-img }} --alt {{ p.title }} %}
+                </a>
+              </div>
+              <div class="col-8 p-0">
+                <div class="post-suggest-title">
+                  <h5 class="m-0"><a href="{{ p.url | absolute_url }}">{{ p.title }}</a></h5>
+                </div>
+              </div>
+            </div>
+            <div class="my-4">
+            </div>
+          </li>
+
+        {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+        {% if maxRelatedCounter >= maxRelated %}
+          {% break %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
