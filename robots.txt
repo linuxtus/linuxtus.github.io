@@ -1,0 +1,12 @@
+User-Agent: *
+
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /search/
+Disallow: /cdn-cgi/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.html$
+Disallow: /*?*
+
+Sitemap: https://linuxtus.com/sitemap.xml

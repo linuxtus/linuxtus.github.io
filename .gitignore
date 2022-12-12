@@ -1,0 +1,13 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+_site/generated/assets/*
+_site/assets/img/posts/*
+generated/assets/*
+assets/img/posts/*
+.git-one/*
+.git-two/*
+assets.zip
+posts.zip
